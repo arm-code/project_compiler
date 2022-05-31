@@ -21,7 +21,8 @@
 };
                                                             
 %token T_FLOTANTE                                                                         
-%token T_ENTERO                                                                      
+%token T_ENTERO
+%token T_PUNTO_COMA                                                                      
 %token <sval> T_IDENTIFICADOR 
 
 %token T_INICIO
@@ -29,11 +30,15 @@
  
 %% /* Grammar rules and actions follow */                                            
 
-
+declaraciones : 
+    declaracion {  printf("%3d: UNA DECLARACION \n", line_number); }
+  | declaracion declaraciones {  printf("%3d: VARIAS DECLARACIONES \n", line_number); }
+;
 
 declaracion:                                                                         
-    tipo_de_dato identificador ';' { printf("%3d: DECLARACION \n", line_number); }                   
+    tipo_de_dato identificador T_PUNTO_COMA { printf("%3d: DECLARACION \n", line_number); }                   
 ;             
+
 
 tipo_de_dato:                                                                      
     T_FLOTANTE { printf("%3d: TIPO DE DATO FLOTANTE \n", line_number); }                         

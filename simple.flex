@@ -13,7 +13,7 @@ extern int line_number;
 "entero"	{ printf("FROM FLEX INT %s\n", yytext);
 				  return T_ENTERO;
 				  }                       
-[;] {  return *yytext; }                                                                    
+";" {  return T_PUNTO_COMA; }                                                                    
 [_a-zA-Z][_a-zA-Z0-9]*	{ printf("FROM FLEX IDENTIFIER: %s\n", yytext);
 						  yylval.sval = malloc(strlen(yytext));
 						  strncpy(yylval.sval, yytext, strlen(yytext));

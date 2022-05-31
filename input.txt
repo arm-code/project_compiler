@@ -1,1 +1,3 @@
-float x;
+flotante alexis;
+entero juan;
+flotante mario;
