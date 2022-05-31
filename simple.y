@@ -20,25 +20,28 @@
   int ival;
 };
                                                             
-%token FLOAT                                                                         
-%token INT                                                                           
-%token <sval> IDENTIFIER                                                                    
+%token T_FLOTANTE                                                                         
+%token T_ENTERO                                                                      
+%token <sval> T_IDENTIFICADOR 
+
+%token T_INICIO
+%token T_FIN 
  
 %% /* Grammar rules and actions follow */                                            
-declaration:                                                                         
-      type_specifier identifier_dum ';'                                              
-        { printf("%3d: FROM BISON declaration\n", line_number); }                   
-;                                                                                    
-type_specifier:                                                                      
-      FLOAT                                                                          
-         { printf("%3d: FROM BISON FLOAT\n", line_number); }                         
-   |  INT                                                                            
-         { printf("%3d: FROM BISON INT\n", line_number); }                           
-;                                                                                    
-identifier_dum:                                                                      
-      IDENTIFIER                                                                     
-         { 
-            printf("%3d: IDENTIFIER: %s\n", line_number, $1); } 
+
+
+
+declaracion:                                                                         
+    tipo_de_dato identificador ';' { printf("%3d: DECLARACION \n", line_number); }                   
+;             
+
+tipo_de_dato:                                                                      
+    T_FLOTANTE { printf("%3d: TIPO DE DATO FLOTANTE \n", line_number); }                         
+  | T_ENTERO { printf("%3d: TIPO DE DATO ENTERO \n", line_number); }                           
+;
+
+identificador:                                                                      
+      T_IDENTIFICADOR { printf("%3d: UN IDENTIFICADOR VALIDO: %s\n", line_number, $1); } 
 ;                                                                                    
 %%                                                                                   
  

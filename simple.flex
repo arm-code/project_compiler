@@ -7,17 +7,17 @@ extern int line_number;
 %option noyywrap                                                                            
  
 %%                                                                                          
-"float"	{ printf("FROM FLEX FLOAT %s\n", yytext);
-				  return FLOAT;
+"flotante"	{ printf("FROM FLEX FLOAT %s\n", yytext);
+				  return T_FLOTANTE;
 				  }                  
-"int"	{ printf("FROM FLEX INT %s\n", yytext);
-				  return INT;
+"entero"	{ printf("FROM FLEX INT %s\n", yytext);
+				  return T_ENTERO;
 				  }                       
 [;] {  return *yytext; }                                                                    
 [_a-zA-Z][_a-zA-Z0-9]*	{ printf("FROM FLEX IDENTIFIER: %s\n", yytext);
 						  yylval.sval = malloc(strlen(yytext));
 						  strncpy(yylval.sval, yytext, strlen(yytext));
-						  return IDENTIFIER; } 
+						  return T_IDENTIFICADOR; } 
 [ \t\r]+          /* eat up whitespace */                                                   
 [\n] { line_number++; }                                                                     
 %%
