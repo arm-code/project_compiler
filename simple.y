@@ -22,13 +22,19 @@
                                                             
 %token T_FLOTANTE                                                                         
 %token T_ENTERO
-%token T_PUNTO_COMA                                                                      
+%token T_CADENA
+%token T_CADENAS
+%token T_PUNTO_COMA
+                                                                      
 %token <sval> T_IDENTIFICADOR 
 
 %token T_INICIO
 %token T_FIN 
  
 %% /* Grammar rules and actions follow */                                            
+
+seccion_programa : T_INICIO declaraciones T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
+;
 
 declaraciones : 
     declaracion {  printf("%3d: UNA DECLARACION \n", line_number); }
@@ -42,11 +48,14 @@ declaracion:
 
 tipo_de_dato:                                                                      
     T_FLOTANTE { printf("%3d: TIPO DE DATO FLOTANTE \n", line_number); }                         
-  | T_ENTERO { printf("%3d: TIPO DE DATO ENTERO \n", line_number); }                           
+  | T_ENTERO { printf("%3d: TIPO DE DATO ENTERO \n", line_number); } 
+  | T_CADENA  { printf("%3d: TIPO DE DATO CADENA \n", line_number); } 
 ;
 
+
 identificador:                                                                      
-      T_IDENTIFICADOR { printf("%3d: UN IDENTIFICADOR VALIDO: %s\n", line_number, $1); } 
+      T_IDENTIFICADOR { printf("%3d: UN IDENTIFICADOR VALIDO: %s\n", line_number, $1); }
+    | T_CADENAS
 ;                                                                                    
 %%                                                                                   
  

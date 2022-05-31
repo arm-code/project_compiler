@@ -1,3 +1,3 @@
-flotante alexis;
-entero juan;
-flotante mario;
+inicio_programa   
+    cadena alexis;
+fin_programa
