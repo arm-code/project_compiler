@@ -9,3 +9,7 @@ simple.tab.c: simple.y
 
 lex.yy.c: simple.flex simple.tab.h
 	flex  simple.flex
+clean:
+	rm *.c
+	rm *.o
+	rm simple
