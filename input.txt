@@ -1,10 +1,11 @@
 inicio_programa{ 
 
-    if (alex == alex){
-        while (alexis > juan){
-            flotante mem;
-        }
-        fin_while
-    }fin_if
+
+
+    funcion prueba (flotante tres, entero dos, flotante tres ){
+        flotante arm;        
+    }
+
+   
 
 }fin_programa

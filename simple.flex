@@ -18,15 +18,15 @@ extern int line_number;
 
 "for" { return T_CICLO_FOR; }
 
-"fin_for" { return T_FIN_CICLO_FOR; }
+
 
 "while" { return T_CICLO_WHILE; }
 
-"fin_while" { return T_FIN_CICLO_WHILE; }
+
 
 "if" { return T_CONDICIONAL_IF; }
 
-"fin_if" { return T_FIN_CONDICIONAL_IF; }
+
 
 "inicio_programa" { return T_INICIO; }
 
@@ -40,6 +40,8 @@ extern int line_number;
 
 ";" {  return T_PUNTO_COMA; }
 
+"," {  return T_COMA; }
+
 "(" {  return T_ABRE_P; }
 
 ")" {  return T_CIERRA_P; }
@@ -50,7 +52,9 @@ extern int line_number;
 
 "=" {  return T_ASIGNA; }
 
+"funcion" {  return T_FUNCION; }
 
+\,? {  return T_PARAMETROS; }
 
 
 \'[a-zA-Z0-9][a-zA-Z0-9]*\' { return T_CADENAS; }
