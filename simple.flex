@@ -40,15 +40,6 @@ extern int line_number;
 
 ";" {  return T_PUNTO_COMA; }
 
-"=" {  return T_ASIGNACION; }
-
-"{" {  return T_LLAVE_ABRE; }
-
-"}" {  return T_LLAVE_CIERRA; }
-
-"(" {  return T_PARENTESIS_ABRE; }
-
-")" {  return T_PARENTESIS_CIERRA; }
 
 
 

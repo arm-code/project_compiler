@@ -26,11 +26,7 @@
 %token T_CADENAS
 
 %token T_PUNTO_COMA
-%token T_ASIGNACION
-%token T_LLAVE_ABRE
-%token T_LLAVE_CIERRA
-%token T_PARENTESIS_ABRE
-%token T_PARENTESIS_CIERRA
+
 
 %token T_IGUAL
 %token T_MENOR_QUE
@@ -53,22 +49,9 @@
 %% /* Grammar rules and actions follow */                                            
 
 seccion_programa 
-  : T_INICIO T_LLAVE_ABRE sentencias T_LLAVE_CIERRA T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
+  : T_INICIO declaraciones T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
   ;
 
-sentencias
-  : sentencia T_PUNTO_COMA
-  | sentencia sentencias
-  ;
-
-sentencia
-  : identificador
-  | identificador T_ASIGNACION identificador T_PUNTO_COMA
-  | ciclo_for
-  | ciclo_while
-  | condicional_if
-  | T_LLAVE_ABRE sentencias T_LLAVE_CIERRA
-  ;
 
 declaraciones 
   : declaracion 
@@ -77,19 +60,22 @@ declaraciones
 
 declaracion
   : tipo_de_dato identificador T_PUNTO_COMA { printf("%3d: DECLARACION \n", line_number); }
-  | tipo_de_dato cadenas T_PUNTO_COMA                   
+  | tipo_de_dato cadenas T_PUNTO_COMA
+  | ciclo_for
+  | ciclo_while
+  | condicional_if                   
   ;             
 
 ciclo_for 
-  : T_CICLO_FOR T_PARENTESIS_ABRE identificador T_PUNTO_COMA identificador T_PUNTO_COMA identificador T_PUNTO_COMA T_PARENTESIS_CIERRA T_FIN_CICLO_FOR { printf(" CICLO FOR \n"); }
+  : T_CICLO_FOR identificador T_PUNTO_COMA identificador T_PUNTO_COMA identificador T_PUNTO_COMA T_FIN_CICLO_FOR { printf(" CICLO FOR \n"); }
   ;
 
 ciclo_while
-  : T_CICLO_WHILE T_PARENTESIS_ABRE identificador operadores_logicos identificador T_PARENTESIS_CIERRA T_FIN_CICLO_WHILE { printf(" CICLO WHILE \n"); }
+  : T_CICLO_WHILE identificador operadores_logicos identificador T_FIN_CICLO_WHILE { printf(" CICLO WHILE \n"); }
   ;
 
 condicional_if
-  : T_CONDICIONAL_IF T_PARENTESIS_ABRE identificador operadores_logicos identificador T_PARENTESIS_CIERRA T_FIN_CONDICIONAL_IF { printf(" CONDICIONAL IF \n "); }
+  : T_CONDICIONAL_IF identificador operadores_logicos identificador T_FIN_CONDICIONAL_IF { printf(" CONDICIONAL IF \n "); }
   ;
 
 operadores_logicos 
