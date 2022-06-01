@@ -1,3 +1,6 @@
-inicio_programa   
-    cadena alexis;
+inicio_programa
+{   
+    cadena 'alexis';    
+    
+}
 fin_programa
