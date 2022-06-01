@@ -59,6 +59,8 @@
 
 seccion_programa 
   : T_INICIO T_ABRE_L declaraciones T_CIERRA_L T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
+  | T_INICIO T_ABRE_L funciones T_CIERRA_L T_FIN
+  | T_INICIO T_ABRE_L declaraciones funciones T_CIERRA_L T_FIN
   ;
 
 declaraciones 
@@ -71,9 +73,13 @@ declaracion
   | tipo_de_dato cadenas T_PUNTO_COMA
   | ciclo_for
   | ciclo_while
-  | condicional_if   
-  | funcion                
+  | condicional_if              
   ;             
+
+funciones
+  : funcion 
+  | funcion funciones
+  ;
 
 funcion
   : T_FUNCION identificador T_ABRE_P parametros T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L

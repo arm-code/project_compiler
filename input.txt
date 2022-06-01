@@ -3,7 +3,13 @@ inicio_programa{
 
 
     funcion prueba (flotante tres, entero dos, flotante tres ){
-        flotante arm;        
+        flotante arm;  
+        
+            
+    }
+    funcion test (flotante tres, entero dos, flotante tres ){
+        flotante arm;  
+            
     }
 
    
