@@ -1,6 +1,10 @@
-inicio_programa
-{   
-    cadena 'alexis';    
-    
-}
-fin_programa
+inicio_programa{ 
+
+    if (alex == alex){
+        while (alexis > juan){
+            flotante mem;
+        }
+        fin_while
+    }fin_if
+
+}fin_programa

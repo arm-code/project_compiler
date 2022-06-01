@@ -8,25 +8,25 @@ extern int line_number;
  
 %%
 
-"igual_que" { return T_IGUAL; }
+"==" { return T_IGUAL; }
 
-"mayor_que" { return T_MAYOR_QUE; }
+">" { return T_MAYOR_QUE; }
 
-"menor_que" { return T_MENOR_QUE; }
+"<" { return T_MENOR_QUE; }
 
-"diferente_de" { return T_DIFERENTE_DE; }
+"!=" { return T_DIFERENTE_DE; }
 
-"ciclo_for" { return T_CICLO_FOR; }
+"for" { return T_CICLO_FOR; }
 
-"fin_ciclo_for" { return T_FIN_CICLO_FOR; }
+"fin_for" { return T_FIN_CICLO_FOR; }
 
-"ciclo_while" { return T_CICLO_WHILE; }
+"while" { return T_CICLO_WHILE; }
 
-"fin_ciclo_while" { return T_FIN_CICLO_WHILE; }
+"fin_while" { return T_FIN_CICLO_WHILE; }
 
-"condicional_if" { return T_CONDICIONAL_IF; }
+"if" { return T_CONDICIONAL_IF; }
 
-"fin_condicional_if" { return T_FIN_CONDICIONAL_IF; }
+"fin_if" { return T_FIN_CONDICIONAL_IF; }
 
 "inicio_programa" { return T_INICIO; }
 
@@ -39,6 +39,16 @@ extern int line_number;
 "cadena" { return T_CADENA; }
 
 ";" {  return T_PUNTO_COMA; }
+
+"(" {  return T_ABRE_P; }
+
+")" {  return T_CIERRA_P; }
+
+"{" {  return T_ABRE_L; }
+
+"}" {  return T_CIERRA_L; }
+
+"=" {  return T_ASIGNA; }
 
 
 

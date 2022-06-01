@@ -26,7 +26,11 @@
 %token T_CADENAS
 
 %token T_PUNTO_COMA
-
+%token T_ABRE_P
+%token T_CIERRA_P
+%token T_ABRE_L
+%token T_CIERRA_L
+%token T_ASIGNA
 
 %token T_IGUAL
 %token T_MENOR_QUE
@@ -49,9 +53,8 @@
 %% /* Grammar rules and actions follow */                                            
 
 seccion_programa 
-  : T_INICIO declaraciones T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
+  : T_INICIO T_ABRE_L declaraciones T_CIERRA_L T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
   ;
-
 
 declaraciones 
   : declaracion 
@@ -67,15 +70,15 @@ declaracion
   ;             
 
 ciclo_for 
-  : T_CICLO_FOR identificador T_PUNTO_COMA identificador T_PUNTO_COMA identificador T_PUNTO_COMA T_FIN_CICLO_FOR { printf(" CICLO FOR \n"); }
+  : T_CICLO_FOR T_ABRE_P identificador T_PUNTO_COMA identificador T_PUNTO_COMA identificador T_PUNTO_COMA T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L T_FIN_CICLO_FOR { printf(" CICLO FOR \n"); }
   ;
 
 ciclo_while
-  : T_CICLO_WHILE identificador operadores_logicos identificador T_FIN_CICLO_WHILE { printf(" CICLO WHILE \n"); }
+  : T_CICLO_WHILE T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L T_FIN_CICLO_WHILE { printf(" CICLO WHILE \n"); }
   ;
 
 condicional_if
-  : T_CONDICIONAL_IF identificador operadores_logicos identificador T_FIN_CONDICIONAL_IF { printf(" CONDICIONAL IF \n "); }
+  : T_CONDICIONAL_IF T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L T_FIN_CONDICIONAL_IF { printf(" CONDICIONAL IF \n "); }
   ;
 
 operadores_logicos 
