@@ -7,4 +7,4 @@ DOCENTE: DR NAHIT PADILLA
 
 DESCRIPCION DEL PROGRAMA:
   Mi programa simula un aproximado al pseint que nos ayuda a escribir pseudocodigo, tengo algunas palabras reservadas en espaniol, otras en ingles (espanglish). 
-  contiene tres
+  contiene tres archivos de prueba con las diferentes funcionalidades que se implementaron.
