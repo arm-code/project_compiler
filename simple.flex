@@ -45,10 +45,12 @@ extern int line_number;
 
 "funcion" {  return T_FUNCION; }
 
+\-?[0-9]+ {  return T_NUM_ENTERO; }
+\-?[0-9]+\.[0-9]+ {  return T_NUM_FLOTANTE; }
+
 \,? {  return T_PARAMETROS; }
 
-
-\'[a-zA-Z0-9][a-zA-Z0-9]*\' { return T_CADENAS; }
+\'[a-zA-Z0-9]*[a-zA-Z0-9]*\' { return T_CADENAS; }
 
 [_a-zA-Z][_a-zA-Z0-9]*	{ printf("FROM FLEX IDENTIFIER: %s\n", yytext);
 						  yylval.sval = malloc(strlen(yytext));

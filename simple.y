@@ -23,8 +23,12 @@
 %token T_FLOTANTE                                                                         
 %token T_ENTERO
 %token T_CADENA
-%token T_CADENAS
+
 %token T_PARAMETROS
+
+%token T_NUM_ENTERO
+%token T_NUM_FLOTANTE
+%token T_CADENAS
 
 %token T_PUNTO_COMA
 %token T_COMA
@@ -33,7 +37,6 @@
 %token T_ABRE_L
 %token T_CIERRA_L
 %token T_ASIGNA
-
 
 %token T_IGUAL
 %token T_MENOR_QUE
@@ -61,11 +64,15 @@
 
  
 %% /* Grammar rules and actions follow */                                            
+programas
+  : seccion_programa { printf("SECCION DE UN PROGRAMA \n"); }
+  | seccion_programa programas 
+  ;
 
 seccion_programa 
-  : T_INICIO T_ABRE_L declaraciones T_CIERRA_L T_FIN { printf("SECCION DE UN PROGRAMA \n"); }
-  | T_INICIO T_ABRE_L funciones T_CIERRA_L T_FIN
-  | T_INICIO T_ABRE_L declaraciones funciones T_CIERRA_L T_FIN
+  : T_INICIO T_ABRE_L  declaraciones T_CIERRA_L T_FIN 
+  | T_INICIO T_ABRE_L funciones T_CIERRA_L T_FIN    
+  | T_INICIO T_ABRE_L declaraciones funciones T_CIERRA_L T_FIN    
   ;
 
 declaraciones 
@@ -74,13 +81,17 @@ declaraciones
   ;
 
 declaracion
-  : tipo_de_dato identificador T_PUNTO_COMA { printf("%3d: DECLARACION \n", line_number); }
-  | tipo_de_dato cadenas T_PUNTO_COMA
-  | identificador T_ASIGNA identificador T_PUNTO_COMA
-  | ciclo_for
-  | ciclo_while
-  | condicional_if   
-  | identificador T_ASIGNA operaciones T_PUNTO_COMA      
+  : tipo_de_dato identificador T_PUNTO_COMA { printf("DECLARACION SENCILLA \n"); }
+  | tipo_de_dato T_CADENAS T_PUNTO_COMA     { printf("DECLARACION CADENA DE CARACTERES SENCILLA \n"); }
+  | identificador T_ASIGNA identificador T_PUNTO_COMA   { printf("ASIGNACION DE IDENTIFICADORES \n"); }
+  | tipo_de_dato identificador T_ASIGNA T_NUM_ENTERO T_PUNTO_COMA   { printf("DECLRACION DE DATOS ENTEROS \n"); }
+  | tipo_de_dato identificador T_ASIGNA T_NUM_FLOTANTE T_PUNTO_COMA   { printf("DECLARACION DE DATOS FLOTANTES \n"); }
+  | tipo_de_dato identificador T_ASIGNA T_CADENAS T_PUNTO_COMA    { printf("DECLARACION DE CADENAS SIN ESPACIOS \n"); }
+  | ciclo_for   { printf("DECLARACION DE CICLO FOR \n"); }
+  | ciclo_while   { printf("DECLARACION DE CICLO WHILE \n"); }
+  | condicional_if    { printf("DECLARACION DE CONDICIONAL IF \n"); }
+  | identificador T_ASIGNA operaciones T_PUNTO_COMA  { printf("DECLARACION DE OPERACIONES SENCILLAS \n"); }    
+  | funciones
   ;             
 
 funciones
@@ -90,6 +101,7 @@ funciones
 
 funcion
   : T_FUNCION identificador T_ABRE_P parametros T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L
+  | T_FUNCION identificador T_ABRE_P T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L
   ;
 
 parametros
@@ -102,15 +114,15 @@ parametro
   ;
 
 ciclo_for 
-  : T_CICLO_FOR T_ABRE_P identificador T_PUNTO_COMA identificador T_PUNTO_COMA identificador T_PUNTO_COMA T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L { printf(" CICLO FOR \n"); }
+  : T_CICLO_FOR T_ABRE_P identificador T_PUNTO_COMA identificador T_PUNTO_COMA identificador T_PUNTO_COMA T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L 
   ;
 
 ciclo_while
-  : T_CICLO_WHILE T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L { printf(" CICLO WHILE \n"); }
+  : T_CICLO_WHILE T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L 
   ;
 
 condicional_if
-  : T_CONDICIONAL_IF T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L{ printf(" CONDICIONAL IF \n "); }
+  : T_CONDICIONAL_IF T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L
   | T_CONDICIONAL_IF T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L T_ELSE T_ABRE_L declaraciones T_CIERRA_L
   ;
 
@@ -139,17 +151,14 @@ operadores_logicos
   ;
 
 tipo_de_dato
-  : T_FLOTANTE { printf("%3d: TIPO DE DATO FLOTANTE \n", line_number); }                         
-  | T_ENTERO { printf("%3d: TIPO DE DATO ENTERO \n", line_number); } 
-  | T_CADENA { printf("%3d: TIPO DE DATO CADENA \n", line_number); } 
+  : T_FLOTANTE                          
+  | T_ENTERO  
+  | T_CADENA  
   ;
 
-cadenas
-  : T_CADENAS
-  ;
 
 identificador
-  : T_IDENTIFICADOR { printf("%3d: UN IDENTIFICADOR VALIDO: %s\n", line_number, $1); }
+  : T_IDENTIFICADOR 
   ;
 
 %%                                                                                   

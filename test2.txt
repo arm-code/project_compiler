@@ -16,10 +16,116 @@ inicio_programa{
         }else{
             while(juan > alexis){
                 perro = gato;
+                while(a > b){
+                    entero contador = 10;
+                    while(juan > alexis){
+                        perro = gato;
+                        while(a > b){
+                            entero contador = 10;
+                            while(juan > alexis){
+                                perro = gato;
+                                while(a > b){
+                                    entero contador = 10;
+                                    while(juan > alexis){
+                                        perro = gato;
+                                        while(a > b){
+                                            entero contador = 10;
+                                            while(juan > alexis){
+                                                perro = gato;
+                                                while(a > b){
+                                                    entero contador = 10;
+                                                    while(juan > alexis){
+                                                        perro = gato;
+                                                        while(a > b){
+                                                            entero contador = 10;
+                                                            if(a>b){
+                                                                entero dato;
+                                                                if(a>b){
+                                                                    entero dato;
+                                                                    if(a>b){
+                                                                    entero dato;
+                                                                        if(a>b){
+                                                                        entero dato;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
             
     }
+
+    funcion test (flotante tres, entero dos, flotante tres ){
+        flotante arm;
+        if(arm > alex)  {
+            entero prueba;
+
+        }else{
+            while(juan > alexis){
+                perro = gato;
+                while(a > b){
+                    entero contador = 10;
+                    while(juan > alexis){
+                        perro = gato;
+                        while(a > b){
+                            entero contador = 10;
+                            while(juan > alexis){
+                                perro = gato;
+                                while(a > b){
+                                    entero contador = 10;
+                                    while(juan > alexis){
+                                        perro = gato;
+                                        while(a > b){
+                                            entero contador = 10;
+                                            while(juan > alexis){
+                                                perro = gato;
+                                                while(a > b){
+                                                    entero contador = 10;
+                                                    while(juan > alexis){
+                                                        perro = gato;
+                                                        while(a > b){
+                                                            entero contador = 10;
+                                                            if(a>b){
+                                                                entero dato;
+                                                                if(a>b){
+                                                                    entero dato;
+                                                                    if(a>b){
+                                                                    entero dato;
+                                                                        if(a>b){
+                                                                        entero dato;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+            
+    }
+
+
+   
 
    
 

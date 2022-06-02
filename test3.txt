@@ -1,26 +1,25 @@
 inicio_programa{ 
+    entero a;
+    entero b;
+    entero c;   
+    entero c = 0;
+    flotante d = 12.7;
+    cadena str = 'holamundo';
 
-
-
-    funcion prueba (flotante tres, entero dos, flotante tres ){
-        flotante arm;  
-        
-            
-    }
-
-    funcion test (flotante tres, entero dos, flotante tres ){
-        flotante arm;
-        if(arm > alex)  {
-            entero prueba;
-
-        }else{
-            while(juan > alexis){
-                perro = gato;
+    if(a < b){
+        c = a +b;
+    }else{
+        while(c != str){
+            c = a % b;
+            for(a;b;b;){
+                flotante e;
+                if(a != e){
+                    entero dato = 10;
+                    if(a > dato){
+                        flotante datof = 10.55;
+                    }
+                }
             }
         }
-            
     }
-
-   
-
 }fin_programa

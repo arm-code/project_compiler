@@ -1,7 +1,34 @@
-inicio_programa{ 
+inicio_programa{
 
-perro = alexis + juan;
+    entero a = 1;
+    funcion suma (entero a, entero b){
+        entero c;
+        c = a + b;        
+    }
 
-   
+    funcion main (){
+        entero c = 10;
+        c = a + b;
+        if(c > test){
+            c = a* b;
+        }
+    }
+
+    funcion resta (entero a, entero b){
+        entero c = 0;
+        entero contador = 1;
+        c = a + b;
+        if(c > contador){
+            contador = a * b;
+        }
+    }
+
+    funcion test(entero a, flotante b, entero c, flotante d){
+        a = b;
+        b = c;
+        c = d;
+        d = a + b;
+    }
+
 
 }fin_programa
