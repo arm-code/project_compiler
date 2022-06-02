@@ -1,0 +1,26 @@
+inicio_programa{ 
+
+
+
+    funcion prueba (flotante tres, entero dos, flotante tres ){
+        flotante arm;  
+        
+            
+    }
+
+    funcion test (flotante tres, entero dos, flotante tres ){
+        flotante arm;
+        if(arm > alex)  {
+            entero prueba;
+
+        }else{
+            while(juan > alexis){
+                perro = gato;
+            }
+        }
+            
+    }
+
+   
+
+}fin_programa

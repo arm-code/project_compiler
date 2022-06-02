@@ -39,6 +39,12 @@
 %token T_MENOR_QUE
 %token T_MAYOR_QUE
 %token T_DIFERENTE_DE
+
+%token T_SUMA
+%token T_RESTA
+%token T_PRODUCTO
+%token T_DIVISION
+%token T_MODULO
                                                                       
 %token <sval> T_IDENTIFICADOR 
 
@@ -46,10 +52,9 @@
 %token T_FIN 
 
 %token T_CICLO_FOR
-
 %token T_CICLO_WHILE
-
 %token T_CONDICIONAL_IF
+%token T_ELSE
 
 %token T_FUNCION
 
@@ -71,9 +76,11 @@ declaraciones
 declaracion
   : tipo_de_dato identificador T_PUNTO_COMA { printf("%3d: DECLARACION \n", line_number); }
   | tipo_de_dato cadenas T_PUNTO_COMA
+  | identificador T_ASIGNA identificador T_PUNTO_COMA
   | ciclo_for
   | ciclo_while
-  | condicional_if              
+  | condicional_if   
+  | identificador T_ASIGNA operaciones T_PUNTO_COMA      
   ;             
 
 funciones
@@ -104,6 +111,24 @@ ciclo_while
 
 condicional_if
   : T_CONDICIONAL_IF T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L{ printf(" CONDICIONAL IF \n "); }
+  | T_CONDICIONAL_IF T_ABRE_P identificador operadores_logicos identificador T_CIERRA_P T_ABRE_L declaraciones T_CIERRA_L T_ELSE T_ABRE_L declaraciones T_CIERRA_L
+  ;
+
+operaciones
+  : operacion_aritmetica
+  | operacion_aritmetica operadores_aritmeticos operaciones
+  ;
+
+operacion_aritmetica
+  : identificador operadores_aritmeticos identificador
+  ;
+
+operadores_aritmeticos
+  : T_SUMA
+  | T_RESTA
+  | T_PRODUCTO
+  | T_DIVISION
+  | T_MODULO
   ;
 
 operadores_logicos 

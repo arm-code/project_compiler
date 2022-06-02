@@ -1,0 +1,7 @@
+inicio_programa{ 
+
+perro = alexis + juan;
+
+   
+
+}fin_programa
